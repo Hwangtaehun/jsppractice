@@ -1,0 +1,16 @@
+package com.ssamz.biz.user;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class InsertUserTest {
+	
+	public static void main(String[] args) {
+		try {
+			DriverManager.registerDriver(new org.h2.Driver());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
