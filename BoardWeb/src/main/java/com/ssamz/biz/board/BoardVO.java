@@ -2,6 +2,18 @@ package com.ssamz.biz.board;
 
 import java.sql.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+// VO(value Object) 클래스
 public class BoardVO {
 	private int seq;
 	private String title;

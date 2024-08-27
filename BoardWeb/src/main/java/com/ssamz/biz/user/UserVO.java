@@ -1,5 +1,9 @@
 package com.ssamz.biz.user;
 
+import lombok.Data;
+
+// VO 클래스
+@Data
 public class UserVO {
 	// private 맴버 변수 선언
 	private String id;
