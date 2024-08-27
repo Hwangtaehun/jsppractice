@@ -5224,3 +5224,20 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-08-27 21:43:41.946
+!MESSAGE An internal error occurred during: "Update License for de.yatta.feature.corediagrams".
+!STACK 0
+java.lang.RuntimeException: The plugin could not be started. Please restart Eclipse.
+	at com.yattasolutions.platform.marketplace.client.MarketplaceClientPlugin.getDefault(MarketplaceClientPlugin.java:222)
+	at com.yattasolutions.platform.marketplace.client.MarketplaceClient.get(MarketplaceClient.java:33)
+	at de.yatta.platform.marketplace.licensing.client.LicensingClient.getLocalAuthorization(LicensingClient.java:395)
+	at de.yatta.platform.marketplace.licensing.client.LicensingClient.restoreOfflineLicenseAfterException(LicensingClient.java:631)
+	at de.yatta.platform.marketplace.licensing.client.LicensingClient$1.run(LicensingClient.java:595)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-08-27 21:43:42.178
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: de.yatta.platform.marketplace.licensing.client.LicensingClient$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-08-27 21:43:42.179
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: de.yatta.platform.marketplace.licensing.client.LicensingClient$1
