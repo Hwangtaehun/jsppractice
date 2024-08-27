@@ -4,14 +4,22 @@
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
+
+  <!--
   <servlet>
     <description></description>
     <display-name>InsertUser</display-name>
     <servlet-name>InsertUser</servlet-name>
     <servlet-class>com.ssamz.web.user.InsertUserServlet</servlet-class>
+    <init-param>
+      <param-name>boardEncoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>InsertUser</servlet-name>
     <url-pattern>/InsertUser.do</url-pattern>
   </servlet-mapping>
+  -->
+  
 </web-app>

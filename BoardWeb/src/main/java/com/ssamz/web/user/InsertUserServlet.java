@@ -7,12 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ssamz.biz.user.UserDAO;
 import com.ssamz.biz.user.UserVO;
+import javax.servlet.ServletConfig;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 
 /**
  * Servlet implementation class InsertUserServlet
  */
+@WebServlet(urlPatterns = "/InsertUser.do", initParams = @WebInitParam(name = "boardEncoding", value = "UTF-8"))
 public class InsertUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String encoding;
+	
+//	public void init(ServletConfig config) throws ServletException{
+//		encoding = config.getInitParameter("boardEncoding");
+//		System.out.println("---> Encoding : " + encoding);
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -20,7 +30,12 @@ public class InsertUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 사용자 입력 정보 추출
 		// 인코딩 처리
-		request.setCharacterEncoding("UTF-8");
+		ServletConfig config = getServletConfig();
+		encoding = config.getInitParameter("boardEncoding");
+		System.out.println("---> Encoding : " + encoding);
+		
+		//request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding(encoding);
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
