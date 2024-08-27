@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ssamz.biz.common.JDBCUtil;
 
@@ -69,22 +71,26 @@ public class UserDAO {
 	}
 	
 	// 회원 목록 조회
-	public void getUserList() {
+	public List<UserVO> getUserList() {
+		List<UserVO> userList = new ArrayList<UserVO>();
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(USER_LIST);
 			rs = stmt.executeQuery();
 			System.out.println("[ USER 목록 ]");
 			while(rs.next()) {
-				System.out.print(rs.getString("ID") + " : ");
-				System.out.print(rs.getString("PASSWORD") + " : ");
-				System.out.print(rs.getString("NAME") + " : ");
-				System.out.println(rs.getString("ROLE"));
+				UserVO user = new UserVO();
+				user.setId(rs.getString("ID"));
+				user.setPassword(rs.getString("PASSWORD"));
+				user.setName(rs.getString("NAME"));
+				user.setRole(rs.getString("ROLE"));
+				userList.add(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCUtil.close(rs, stmt, conn);
 		}
+		return userList;
 	}
 }
