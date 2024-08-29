@@ -6585,3 +6585,11 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.server.core 4 0 2024-08-29 20:58:47.147
 !MESSAGE Server Tomcat v9.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-08-29 22:33:04.495
+!MESSAGE An internal error occurred during: "Check server availability".
+!STACK 0
+java.lang.RuntimeException: The plugin could not be started. Please restart Eclipse.
+	at com.yattasolutions.platform.marketplace.client.MarketplaceClientPlugin.getDefault(MarketplaceClientPlugin.java:222)
+	at com.yattasolutions.platform.marketplace.client.account.CheckServerAvailabilityJob.run(CheckServerAvailabilityJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
