@@ -56,7 +56,7 @@ public class GetBoardListServlet extends HttpServlet {
 		for(BoardVO board : boardList) {
 			out.println("<tr>");
 			out.println("<td>" + board.getSeq() + "</td>");
-			out.println("<td align = 'left'><a href = '#'>" + board.getTitle() + "</a></td>");
+			out.println("<td align = 'left'><a href = 'getBoard.do?seq=" + board.getSeq() + "'>" + board.getTitle() + "</a></td>");
 			out.println("<td>" + board.getWriter() + "</td>");
 			out.println("<td>" + board.getRegDate() + "</td>");
 			out.println("<td>" + board.getCnt() + "</td>");
