@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
@@ -17,6 +18,24 @@ public class GetBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		// 0. 상태 정보 체크
+		Cookie[] cookieList = request.getCookies();
+		if(cookieList == null) {
+			response.sendRedirect("/login.html");
+		} else {
+			String userId = null;
+			
+			for (Cookie cookie : cookieList) {
+				if(cookie.getName().equals("userId")) {
+					userId = cookie.getValue();
+				}
+			}
+			
+			if(userId == null) {
+				response.sendRedirect("/login.html");
+			}
+		}
+		
 		// 1. 사용자 입력 정보 추출
 		String seq = request.getParameter("seq");
 		
