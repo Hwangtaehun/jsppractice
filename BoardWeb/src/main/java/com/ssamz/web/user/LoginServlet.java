@@ -61,6 +61,8 @@ public class LoginServlet extends HttpServlet {
     			session.setAttribute("userRole", user.getRole());
     			
     			// 글 목록 화면으로 포워딩하다.
+    			// 글 목록 화면에서 사용할 데이터를 HttpServletRequest에 등록한다.
+    			request.setAttribute("welcomeMessage", "님 환영합니다.");
     			RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
     			dispatcher.forward(request, response);
     		} else {
