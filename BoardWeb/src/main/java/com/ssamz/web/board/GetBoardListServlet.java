@@ -14,6 +14,7 @@ import javax.servlet.ServletContext;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
+import com.ssamz.biz.user.UserVO;
 
 /**
  * Servlet implementation class GetBoardListServlet
@@ -58,8 +59,9 @@ public class GetBoardListServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<center>");
 		out.println("<h1>게시글 목록</h1>");
-		String userName = (String) session.getAttribute("userName");
-		out.println("<h3>" + userName + "님 환영합니다.");
+		UserVO user = (UserVO) session.getAttribute("user");
+		//String userName = (String) session.getAttribute("userName");
+		out.println("<h3>" + user.getName() + "님 환영합니다.");
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 		
 		out.println("<!-- 검색 시작 -->");

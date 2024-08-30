@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import com.ssamz.biz.user.UserDAO;
@@ -55,14 +56,11 @@ public class LoginServlet extends HttpServlet {
     		if(user.getPassword().equals(password)) {
     			// 상태 정보를 세션에 저장하여 전송한다.
     			HttpSession session = request.getSession();
-    			session.setAttribute("userId", user.getId());
-    			session.setAttribute("userName", user.getName());
-    			session.setAttribute("userRole", user.getRole());
+    			session.setAttribute("user", user);
     			
-    			// 글 목록 화면으로 리디렉트하다.
-    			ServletContext context = getServletContext();
-    			context.setAttribute("welcomeMessage", "님 환영합니다.");
-    			response.sendRedirect("getBoardList.do");
+    			// 글 목록 화면으로 포위딩한다.
+    			RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
+    			dispatcher.forward(request, response);
     		} else {
     			out.println("비밀번호 오류입니다.<br>");
     			out.println("<a href='/'>다시 로그인</a>");
@@ -71,23 +69,6 @@ public class LoginServlet extends HttpServlet {
     		out.println("아이디 오류입니다.<br>");
 			out.println("<a href='/'>다시 로그인</a>");
     	}
-    	
-    	/*
-		 * System.out.println("-------Start Line-------"); String method =
-		 * request.getMethod(); String uri = request.getRequestURI(); String protocol =
-		 * request.getProtocol(); System.out.println(method + " " + uri + " " +
-		 * protocol);
-		 * 
-		 * System.out.println("-------Message Header-------");
-		 * System.out.println("Host : "+ request.getHeader("host"));
-		 * System.out.println("Connection : "+ request.getHeader("connection"));
-		 * System.out.println("User-Agent : "+ request.getHeader("user-agent"));
-		 * System.out.println("Accept : "+ request.getHeader("accpet"));
-		 * System.out.println("Accept-Encoding : "+
-		 * request.getHeader("accpet-encoding"));
-		 * System.out.println("Accept-Language : "+
-		 * request.getHeader("accpet-language"));
-		 */
     }
 
 	/**

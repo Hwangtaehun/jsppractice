@@ -31,7 +31,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		// pass the request along the filter chain
-		if(session.getAttribute("userId") == null) {
+		if(session.getAttribute("user") == null) {
 			res.sendRedirect("/");
 		}else {
 			chain.doFilter(request, response);

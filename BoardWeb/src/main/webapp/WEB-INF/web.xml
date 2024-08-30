@@ -55,4 +55,10 @@
     <filter-name>authentication</filter-name>
     <url-pattern>/deleteBoard.do</url-pattern>
   </filter-mapping>
+  <listener>
+    <listener-class>com.ssamz.web.common.BoardWebListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.ssamz.web.common.BoardWebSessionListener</listener-class>
+  </listener>
 </web-app>

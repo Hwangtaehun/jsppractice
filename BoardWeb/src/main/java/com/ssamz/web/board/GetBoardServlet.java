@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
+import com.ssamz.biz.user.UserVO;
 
 @WebServlet("/getBoard.do")
 public class GetBoardServlet extends HttpServlet {
@@ -73,8 +74,8 @@ public class GetBoardServlet extends HttpServlet {
 		out.println("<hr>");
 		out.println("<a href='insertBoard.html'>글등록</a>&nbsp;&nbsp;&nbsp;");
 		HttpSession session = request.getSession();
-		String userRole = (String) session.getAttribute("userRole");
-		if(userRole.equals("ADMIN")) {
+		UserVO user = (UserVO) session.getAttribute("user");
+		if(user.getRole().equals("ADMIN")) {
 			out.println("<a href='deleteBoard.do?seq=" + board.getSeq() + "'>글삭제</a>&nbsp;&nbsp;&nbsp;");
 		}
 		out.println("<a href='getBoardList.do'>글목록</a>");
