@@ -17,4 +17,25 @@
     <filter-name>timeCheck</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+  <filter>
+    <display-name>characterEncoding</display-name>
+    <filter-name>characterEncoding</filter-name>
+    <filter-class>com.ssamz.web.common.CharacterEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>/insertBoard.do</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>/insertUser.do</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>/updateBoard.do</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>/getBoardList.do</url-pattern>
+  </filter-mapping>
 </web-app>

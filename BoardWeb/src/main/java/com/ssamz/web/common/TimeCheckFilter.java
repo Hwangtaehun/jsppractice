@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.annotation.WebFilter;
 
 /**
@@ -39,11 +40,17 @@ public class TimeCheckFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		System.out.println("---> doFilter() 호출");
-		System.out.println("---[ 사전 처리 ]---");
+		HttpServletRequest req = (HttpServletRequest) request;
+		String uri = req.getRequestURI();
+		String path = uri.substring(uri.lastIndexOf("/"));
+		
+		long startTime = System.currentTimeMillis();
+		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
-		System.out.println("---[ 사후 처리 ]---");
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println(path + "서블릿 수행에 소요된 시간 : " + (endTime - startTime) + "(ms)초");
 	}
 
 	/**
