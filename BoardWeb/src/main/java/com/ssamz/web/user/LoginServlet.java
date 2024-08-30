@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import com.ssamz.biz.user.UserDAO;
 import com.ssamz.biz.user.UserVO;
 import java.io.PrintWriter;
@@ -53,9 +53,13 @@ public class LoginServlet extends HttpServlet {
     	// 메시지 출력
     	if(user != null) {
     		if(user.getPassword().equals(password)) {
-    			// 상태 정보를 쿠키에 저장하여 전송한다.
-    			Cookie userId = new Cookie("userId", user.getId());
-    			response.addCookie(userId);
+    			// 상태 정보를 세션에 저장하여 전송한다.
+    			HttpSession session = request.getSession();
+    			session.setMaxInactiveInterval(10);
+    			session.setAttribute("userId", user.getId());
+    			session.setAttribute("userName", user.getName());
+    			session.setAttribute("userRole", user.getRole());
+    			
     			// 글 목록 화면으로 포워딩하다.
     			RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
     			dispatcher.forward(request, response);

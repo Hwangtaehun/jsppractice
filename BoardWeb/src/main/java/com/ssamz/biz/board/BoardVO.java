@@ -22,6 +22,10 @@ public class BoardVO {
 	private Date regDate;
 	private int cnt;
 	
+	// 검색 관련 변수
+	private String searchCondition;
+	private String searchKeyword;
+	
 	// Getter/Setter 메소드
 	public int getSeq() {
 		return seq;
