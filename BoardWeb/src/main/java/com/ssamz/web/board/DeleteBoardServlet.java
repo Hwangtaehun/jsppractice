@@ -2,6 +2,7 @@ package com.ssamz.web.board;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,7 @@ public class DeleteBoardServlet extends HttpServlet {
 		boardDAO.deleteBoard(vo);
 		
 		// 3. 화면 이동
-		response.sendRedirect("getBoardList.do");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.do");
+		dispatcher.forward(request, response);
 	}
 }

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 import com.ssamz.biz.board.BoardDAO;
 import com.ssamz.biz.board.BoardVO;
@@ -45,6 +46,7 @@ public class UpdateBoardServlet extends HttpServlet {
 		boardDAO.updateBoard(vo);
 		
 		// 3. 화면 이동
-		response.sendRedirect("getBoardList.do");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/getBoardList.do");
+		dispatcher.forward(request, response);
 	}
 }

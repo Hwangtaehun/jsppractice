@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import com.ssamz.biz.user.UserDAO;
 import com.ssamz.biz.user.UserVO;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 
 /**
  * Servlet implementation class LoginServlet
@@ -51,8 +52,9 @@ public class LoginServlet extends HttpServlet {
     	// 메시지 출력
     	if(user != null) {
     		if(user.getPassword().equals(password)) {
-    			out.println(user.getName() + "님 로그인 환영!<br>");
-    			out.println("<a href='/getBoardList.do'>글 목록 이동</a>");
+    			// 글 목록 화면으로 포워딩하다.
+    			RequestDispatcher dispatcher = request.getRequestDispatcher("getBoardList.do");
+    			dispatcher.forward(request, response);
     		} else {
     			out.println("비밀번호 오류입니다.<br>");
     			out.println("<a href='/'>다시 로그인</a>");

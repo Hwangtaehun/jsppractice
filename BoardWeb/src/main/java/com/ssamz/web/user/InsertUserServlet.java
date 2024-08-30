@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ssamz.biz.user.UserDAO;
 import com.ssamz.biz.user.UserVO;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -64,7 +66,8 @@ public class InsertUserServlet extends HttpServlet {
 		dao.insertUser(vo);
 		
 		// 3. 화면 이동
-		response.sendRedirect("login.html");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
+		dispatcher.forward(request, response);
 	}
 
 }
