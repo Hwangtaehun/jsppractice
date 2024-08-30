@@ -55,7 +55,6 @@ public class LoginServlet extends HttpServlet {
     		if(user.getPassword().equals(password)) {
     			// 상태 정보를 세션에 저장하여 전송한다.
     			HttpSession session = request.getSession();
-    			session.setMaxInactiveInterval(10);
     			session.setAttribute("userId", user.getId());
     			session.setAttribute("userName", user.getName());
     			session.setAttribute("userRole", user.getRole());
