@@ -27,17 +27,7 @@ public class GetBoardListServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// 0. 상태 정보 체크
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		if(userId == null) {
-			response.sendRedirect("/");
-		}
-		
 		// 1. 사용자 입력 정보 추출
-		ServletContext context = request.getServletContext();
-		String encoding = context.getInitParameter("boardEncoding");
-		request.setCharacterEncoding(encoding);
 		String searchCondition = request.getParameter("searchCondition");
 		String searchKeyword = request.getParameter("searchKeyword");
 		
@@ -46,6 +36,7 @@ public class GetBoardListServlet extends HttpServlet {
 		if(searchKeyword == null) searchKeyword = "";
 		
 		// 새션에 검색 관련 정보를 저장한다.
+		HttpSession session = request.getSession();
 		session.setAttribute("condition", searchCondition);
 		session.setAttribute("keyword", searchKeyword);
 		
@@ -68,8 +59,7 @@ public class GetBoardListServlet extends HttpServlet {
 		out.println("<center>");
 		out.println("<h1>게시글 목록</h1>");
 		String userName = (String) session.getAttribute("userName");
-		String welcomeMessage = (String) context.getAttribute("welcomeMessage");
-		out.println("<h3>" + userName +welcomeMessage);
+		out.println("<h3>" + userName + "님 환영합니다.");
 		out.println("<a href='logout.do'>Log-out</a></h3>");
 		
 		out.println("<!-- 검색 시작 -->");

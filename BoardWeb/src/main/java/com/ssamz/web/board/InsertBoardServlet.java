@@ -27,9 +27,6 @@ public class InsertBoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// 1. 사용자 입력 정보 추출
-		ServletContext context = getServletContext();
-		this.encoding = context.getInitParameter("boardEncoding");
-		request.setCharacterEncoding(encoding);
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");

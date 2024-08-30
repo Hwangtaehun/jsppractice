@@ -32,13 +32,6 @@ public class InsertUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 사용자 입력 정보 추출
-		// 인코딩 처리
-		ServletContext context = getServletContext();
-		encoding = context.getInitParameter("boardEncoding");
-		System.out.println("---> Encoding : " + encoding);
-		
-		//request.setCharacterEncoding("UTF-8");
-		request.setCharacterEncoding(encoding);
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
