@@ -1,6 +1,6 @@
 <%@ page import="com.ssamz.biz.board.BoardDAO" %>
 <%@ page import="com.ssamz.biz.board.BoardVO" %>
-<%@ page import contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <%
 	// 1. 사용자 입력 정보 추출
@@ -17,7 +17,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 <center>
-<form action="updateBoard_pro.jsp" method="post">
+<form action="updateBoard_proc.jsp" method="post">
 <input name="seq" type="hidden" value="<%= board.getSeq() %>" />
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr>
@@ -50,7 +50,7 @@
 </form>
 <br>
 <% if(user.getRole().equals("ADMIN")) { %>
-<a href="deleteBoard_proc.jsp">글삭제</a>
+<a href="deleteBoard_proc.jsp?seq=<%= board.getSeq() %>">글삭제</a>
 <% } %>
 </center>
 
