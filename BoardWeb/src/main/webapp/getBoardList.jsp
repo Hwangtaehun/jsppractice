@@ -6,27 +6,10 @@
 <%@ include file="../layout/header.jsp" %>
 
 <%
-	// 1. 사용자 입력정보 추출
-	String searchCondition = request.getParameter("searchCondition");
-	String searchKeyword = request.getParameter("searchKeyword");
+	// 1. 컨트롤러(Servlet)가 모델(DAO)을 이용하여 request에 등록한 글 목록을 꺼낸다.
+	List<BoardVO> boardList = (List) request.getAttribute("boardList");
 	
-	// Null Check
-	if(searchCondition == null) searchCondition = "TITLE";
-	if(searchKeyword == null) searchKeyword = "";
-	
-	// 세션에 검색 관련 정보를 저장한다. 
-	session.setAttribute("condition", searchCondition);
-	session.setAttribute("keyword", searchKeyword);	
-
-	// 2. DB 연동 처리
-	BoardVO vo = new BoardVO();
-	vo.setSearchCondition("TITLE");
-	vo.setSearchKeyword("");
-	
-	BoardDAO dao = new BoardDAO();
-	List<BoardVO> boardList = dao.getBoardList(vo);
-	
-	// 3. 화면 이동
+	// 2. 화면 이동
 %>
 
 <center>
