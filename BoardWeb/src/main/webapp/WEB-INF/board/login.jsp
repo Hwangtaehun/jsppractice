@@ -6,7 +6,7 @@
 <h1>로그인</h1>
 <img src = "image/orange.png" width = "100" height = "80">
 <hr>
-<form action = "login_proc.jsp" method = "POST">
+<form action = "login.do" method = "POST">
 	  <table border = "1" cellpadding = "0" cellspacing = "0">
 	  		<tr>
 	  			<td bgcolor = "orange">아이디</td>

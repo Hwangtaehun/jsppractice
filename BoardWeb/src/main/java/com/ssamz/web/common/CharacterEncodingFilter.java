@@ -16,8 +16,7 @@ import javax.servlet.annotation.WebInitParam;
 /**
  * Servlet Filter implementation class CharacterEncodingFilter
  */
-@WebFilter(urlPatterns = {"/insertBoard_proc.jsp", "/insertUser_proc.jsp", 
-						  "/updateBoard_proc.jsp", "/index.jsp"},
+@WebFilter(urlPatterns = {"*.do"},
 		  initParams = @WebInitParam(name = "boardEncoding", value = "UTF-8"))
 public class CharacterEncodingFilter extends HttpFilter implements Filter {
 	private static final long serialVersionUID = 1L;
