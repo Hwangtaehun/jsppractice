@@ -24,9 +24,22 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSessionBindingListener"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.servlet.HttpConstraintElement"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.HandlerMapping"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.InsertUserViewController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.InsertUserController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.LoginViewController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.LoginController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.GetBoardListController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.GetBoardController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.InsertBoardViewController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.InsertBoardController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.UpdateBoardController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.Controller"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.DeleteBoardController"/>
+    <fullyQualifiedTypeName name="com.ssamz.web.controller.user.LogoutController"/>
 </qualifiedTypeNameHistroy>
