@@ -28,7 +28,7 @@ public class DispatcherServlet extends HttpServlet {
 		handlerMapping = new HandlerMapping();
 		viewResolver = new ViewResolver();
 		viewResolver.setPrefix("./WEB-INF/board/");
-		viewResolver.setSuffix("jsp");
+		viewResolver.setSuffix(".jsp");
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
