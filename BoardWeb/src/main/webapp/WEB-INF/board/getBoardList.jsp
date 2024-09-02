@@ -19,10 +19,12 @@
 	<tr>
 		<td align="right">
 			<select name="searchCondition">
-			<option value="TITLE">제목
-			<option value="CONTENT">내용
+			<option value="TITLE">
+			<c:if test="${condition == 'TITLE' }">selected</c:if>제목
+			<option value="CONTENT">
+			<c:if test="${condition == 'CONTENT' }">selected</c:if>내용
 			</select>
-			<input name="searchKeyword" type="text"/>
+			<input name="searchKeyword" type="text" value="${keyword }"/>
 			<input type="submit" value="검색"/>
 		</td>
 	</tr>
@@ -39,15 +41,15 @@
 	<th bgcolor="orange" width="100">조회수</th>
 </tr>
 
-<% for(BoardVO board : boardList) { %>
+<c:forEach var="board" items="${boardList }">
 <tr>
-	<td><%= board.getSeq() %></td>
-		<td align="left"><a href="getBoard.do?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
-	<td><%= board.getWriter() %></td>
-	<td><%= board.getRegDate() %></td>
-	<td><%= board.getCnt() %></td>
+	<td>${board.seq }</td>
+		<td align="left"><a href="getBoard.do?seq=${board.seq }">${board.title }</a></td>
+	<td>${board.writer }</td>
+	<td>${board.regDate }</td>
+	<td>${board.cnt }</td>
 </tr>
-<% } %>
+</c:forEach>
 
 </table>
 </center>

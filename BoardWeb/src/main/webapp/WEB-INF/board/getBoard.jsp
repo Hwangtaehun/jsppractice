@@ -13,28 +13,28 @@
 
 <center>
 <form action="updateBoard.do" method="post">
-<input name="seq" type="hidden" value="<%= board.getSeq() %>" />
+<input name="seq" type="hidden" value="${board.seq }" />
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr>
 		<td bgcolor="orange" width="70">제목</td>
-		<td align="left"><input name="title" type="text" value="<%= board.getTitle() %>"/></td>
+		<td align="left"><input name="title" type="text" value="${board.title }"/></td>
 	</tr>
 	<tr>
 		<td bgcolor="orange">작성자</td>
-		<td align="left"><%= board.getWriter() %></td>
+		<td align="left">${board.writer }</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange">내용</td>
 		<td align="left">
-<textarea name="content" cols="40" rows="10"><%= board.getContent() %></textarea></td>
+<textarea name="content" cols="40" rows="10">${board.content }</textarea></td>
 	</tr>
 	<tr>
 		<td bgcolor="orange">등록일</td>
-		<td align="left"><%= board.getRegDate() %></td>
+		<td align="left">${board.regDate }</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange">조회수</td>
-		<td align="left"><%= board.getCnt() %></td>
+		<td align="left">${board.cnt }</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
@@ -44,9 +44,9 @@
 </table>
 </form>
 <br>
-<% if(user.getRole().equals("ADMIN")) { %>
-<a href="deleteBoard.do?seq=<%= board.getSeq() %>">글삭제</a>
-<% } %>
+<c:if test="${user.role == 'ADMIN' }">
+<a href="deleteBoard.do?seq=${board.seq }">글삭제</a>
+</c:if>
 </center>
 
 <%@ include file="../layout/footer.jsp" %>
