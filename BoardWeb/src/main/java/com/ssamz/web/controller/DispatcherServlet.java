@@ -46,7 +46,7 @@ public class DispatcherServlet extends HttpServlet {
 		String view = null;
 		if(!viewName.contains(".do")) {
 			if(viewName.equals("index")) {
-				view = viewName + "jsp";
+				view = viewName + ".jsp";
 			} else {
 				view = viewResolver.getView(viewName);
 			}
